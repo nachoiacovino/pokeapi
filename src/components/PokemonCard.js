@@ -5,16 +5,28 @@ import { useHistory } from 'react-router-dom';
 const PokemonCard = ({ pokemon }) => {
   const history = useHistory();
 
-  const navigateToDetail = () => history.push(`/pokemon/${pokemon.name}`);
-
   return (
-    <div className="PokemonCard" onClick={navigateToDetail}>
-      <div class="PokemonCard-title">
-        <img
-          src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`}
-          alt={pokemon.name}
-        />
-        {pokemon.name}
+    <div className="PokemonCard">
+      <div
+        className="PokemonCard-header"
+        style={!pokemon.id ? { justifyContent: 'center' } : null}
+      >
+        {pokemon.id && <div className="flex-helper"></div>}
+        <div className="PokemonCard-title">
+          <img
+            src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`}
+            alt={pokemon.name}
+          />
+          <p>{pokemon.name}</p>
+        </div>
+        {pokemon.id && (
+          <div
+            className="PokemonCard-back"
+            onClick={() => history.push('/pokemon')}
+          >
+            &#x2715;
+          </div>
+        )}
       </div>
       <div>
         {pokemon.id && (
