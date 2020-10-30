@@ -5,7 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 import pokeapi from '../../api/pokeapi';
 import logo from '../../assets/logo.png';
-import PokemonCard from '../../components/PokemonCard';
+import Loading from '../../components/Loading/Loading';
+import PokemonCard from '../../components/PokemonCard/PokemonCard';
 import useInputState from '../../hooks/useInputState';
 
 const Pokemon = () => {
@@ -13,6 +14,7 @@ const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
   const [filteredPkmn, setFilteredPkmn] = useState([]);
   const [term, setTerm] = useInputState('');
+  const [loading, setLoading] = useState(true);
 
   const navigateToDetail = (name) => history.push(`/pokemon/${name}`);
 
@@ -23,6 +25,7 @@ const Pokemon = () => {
       });
       setPokemon(res.data.results);
       setFilteredPkmn(res.data.results);
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -48,17 +51,21 @@ const Pokemon = () => {
           />
         </div>
       </div>
-      <div className="Pokemon-list">
-        {filteredPkmn.map((pkmn) => (
-          <div
-            key={pkmn.name}
-            className="Pokemon-cardContainer"
-            onClick={() => navigateToDetail(pkmn.name)}
-          >
-            <PokemonCard pokemon={pkmn} />
-          </div>
-        ))}
-      </div>
+      {loading ? (
+        <Loading loading={loading} />
+      ) : (
+        <div className="Pokemon-list">
+          {filteredPkmn.map((pkmn) => (
+            <div
+              key={pkmn.name}
+              className="Pokemon-cardContainer"
+              onClick={() => navigateToDetail(pkmn.name)}
+            >
+              <PokemonCard pokemon={pkmn} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
