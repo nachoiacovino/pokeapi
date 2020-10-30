@@ -31,8 +31,13 @@
     .Pokemon-cardContainer {
       cursor: pointer;
 
-      .PokemonCard:hover {
-        background: rgb(228, 227, 227);
+      .PokemonCard {
+        height: 15vh;
+        align-items: center;
+
+        &:hover {
+          background: rgb(228, 227, 227);
+        }
       }
     }
   }

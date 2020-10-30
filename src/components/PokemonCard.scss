@@ -1,11 +1,10 @@
 .PokemonCard {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
   width: 12vw;
-  height: 15vh;
   margin-bottom: 3vh;
   text-transform: capitalize;
   background: white;
