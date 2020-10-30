@@ -1,12 +1,20 @@
 import './PokemonCard.scss';
 
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({ pokemon: { name } }) => {
+  const history = useHistory();
+
+  const navigateToDetail = () => history.push(`/pokemon/${name}`);
+
   return (
-    <Link to={`/pokemon/${pokemon.name}`}>
-      <div>{pokemon.name}</div>
-    </Link>
+    <div class="PokemonCard" onClick={navigateToDetail}>
+      <img
+        src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif`}
+        alt={name}
+      />
+      {name}
+    </div>
   );
 };
 
