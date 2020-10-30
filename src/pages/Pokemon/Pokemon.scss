@@ -1,9 +1,33 @@
-.Pokemon-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.Pokemon {
+  .Pokemon-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10vh 0;
 
-  .Pokemon-cardContainer {
-    cursor: pointer;
+    .Pokemon-gen {
+      margin-top: 2vh;
+
+      .Pokemon-number {
+        display: block;
+        text-align: center;
+        margin: 0;
+      }
+    }
+
+    .Pokemon-logo {
+      width: 25%;
+    }
+  }
+
+  .Pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .Pokemon-cardContainer {
+      cursor: pointer;
+    }
   }
 }
