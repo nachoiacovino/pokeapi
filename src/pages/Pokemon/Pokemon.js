@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import pokeapi from '../../api/pokeapi';
+import logo from '../../assets/logo.png';
 import PokemonCard from '../../components/PokemonCard';
 import useInputState from '../../hooks/useInputState';
 
@@ -33,11 +34,7 @@ const Pokemon = () => {
   return (
     <div className="Pokemon">
       <div className="Pokemon-header">
-        <img
-          className="Pokemon-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
-          alt="Pokémon Logo"
-        />
+        <img className="Pokemon-logo" src={logo} alt="Pokémon Logo" />
         <div className="Pokemon-gen">
           <strong>Generation 1</strong>
           <small className="Pokemon-number">151 Pokémon</small>
