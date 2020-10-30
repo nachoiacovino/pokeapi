@@ -43,16 +43,18 @@ const PokemonCard = ({ pokemon }) => {
               </strong>
               {pokemon.types.length === 1
                 ? pokemon.types[0].type.name
-                : pokemon.types?.map(({ type }) => <li>{type.name}</li>)}
+                : pokemon.types?.map(({ type }) => (
+                    <li key={type.name}>{type.name}</li>
+                  ))}
             </p>
             <p></p>
-            <p>
-              <strong>Height:</strong> {pokemon.height}
+            <p className="PokemonCard-height">
+              <strong>Height:</strong> {(pokemon.height / 10).toFixed(1)} m
             </p>
             <p>
               <strong>Abilities:</strong>
               {pokemon.abilities?.map(({ ability }) => (
-                <li>{ability.name}</li>
+                <li key={ability.name}>{ability.name}</li>
               ))}
             </p>
           </div>
