@@ -6,9 +6,9 @@ import PokemonDetail from './pages/PokemonDetail/PokemonDetail';
 const App = () => {
   return (
     <Switch>
-      <Redirect exact from="/" to="/pokemon" />
       <Route exact path="/pokemon" component={Pokemon} />
       <Route exact path="/pokemon/:name" component={PokemonDetail} />
+      <Redirect from="/" to="/pokemon" />
     </Switch>
   );
 };
