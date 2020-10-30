@@ -52,10 +52,14 @@ const PokemonCard = ({ pokemon }) => {
               <strong>Height:</strong> {(pokemon.height / 10).toFixed(1)} m
             </p>
             <p>
-              <strong>Abilities:</strong>
-              {pokemon.abilities?.map(({ ability }) => (
-                <li key={ability.name}>{ability.name}</li>
-              ))}
+              <strong>
+                {pokemon.abilities.length === 1 ? 'Ability: ' : 'Abilities: '}
+              </strong>
+              {pokemon.abilities.length === 1
+                ? pokemon.abilities[0].ability.name
+                : pokemon.abilities?.map(({ ability }) => (
+                    <li key={ability.name}>{ability.name}</li>
+                  ))}
             </p>
           </div>
         )}
