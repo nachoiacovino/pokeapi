@@ -1,7 +1,13 @@
 import './PokemonCard.scss';
 
+import { Link } from 'react-router-dom';
+
 const PokemonCard = ({ pokemon }) => {
-  return <div>{pokemon.name}</div>;
+  return (
+    <Link to={`/pokemon/${pokemon.name}`}>
+      <div>{pokemon.name}</div>
+    </Link>
+  );
 };
 
 export default PokemonCard;
