@@ -3,6 +3,7 @@ import './Pokemon.scss';
 import { useEffect, useState } from 'react';
 
 import pokeapi from '../../api/pokeapi';
+import PokemonCard from '../../components/PokemonCard';
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -12,12 +13,19 @@ const Pokemon = () => {
       const res = await pokeapi.get('pokemon', {
         params: { limit: 151 },
       });
-      console.log(res.data);
+      setPokemon(res.data.results);
+      console.log(res.data.results);
     };
     fetchData();
   }, []);
 
-  return <div>hi</div>;
+  return (
+    <div>
+      {pokemon.map((pkmn) => (
+        <PokemonCard key={pkmn.name} pokemon={pkmn} />
+      ))}
+    </div>
+  );
 };
 
 export default Pokemon;
