@@ -1,15 +1,15 @@
 import './Pokemon.scss';
 
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+
+import pokeapi from '../../api/pokeapi';
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
-  const baseUrl = 'https://pokeapi.co/api/v2/';
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`${baseUrl}pokemon`, {
+      const res = await pokeapi.get('pokemon', {
         params: { limit: 151 },
       });
       console.log(res.data);
