@@ -6,7 +6,10 @@ const PokemonCard = ({ pokemon }) => {
   const history = useHistory();
 
   return (
-    <div className="PokemonCard">
+    <div
+      className="PokemonCard"
+      style={pokemon.id ? { height: 'inherit' } : null}
+    >
       <div
         className="PokemonCard-header"
         style={!pokemon.id ? { justifyContent: 'center' } : null}

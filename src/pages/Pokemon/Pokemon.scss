@@ -25,9 +25,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 50vw;
+    margin: 0 auto;
 
     .Pokemon-cardContainer {
       cursor: pointer;
+
+      .PokemonCard:hover {
+        background: rgb(228, 227, 227);
+      }
     }
   }
 }

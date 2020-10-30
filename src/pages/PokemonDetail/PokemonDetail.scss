@@ -1,13 +1,7 @@
 .PokemonDetail {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-top: 5vh;
   background-color: rgb(241, 238, 238);
-  height: 100vh;
-
-  .PokemonDetail-card {
-    background-color: white;
-    height: 20vh;
-    width: 30vw;
-  }
 }
