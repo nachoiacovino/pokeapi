@@ -5,10 +5,13 @@ import { useHistory } from 'react-router-dom';
 
 import pokeapi from '../../api/pokeapi';
 import PokemonCard from '../../components/PokemonCard';
+import useInputState from '../../hooks/useInputState';
 
 const Pokemon = () => {
   const history = useHistory();
   const [pokemon, setPokemon] = useState([]);
+  const [filteredPkmn, setFilteredPkmn] = useState([]);
+  const [term, setTerm] = useInputState('');
 
   const navigateToDetail = (name) => history.push(`/pokemon/${name}`);
 
@@ -18,9 +21,14 @@ const Pokemon = () => {
         params: { limit: 151 },
       });
       setPokemon(res.data.results);
+      setFilteredPkmn(res.data.results);
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    setFilteredPkmn([...pokemon].filter((pkmn) => pkmn.name.includes(term)));
+  }, [pokemon, term]);
 
   return (
     <div className="Pokemon">
@@ -34,9 +42,17 @@ const Pokemon = () => {
           <strong>Generation 1</strong>
           <small className="Pokemon-number">151 Pokémon</small>
         </div>
+        <div>
+          <input
+            type="text"
+            value={term}
+            onChange={setTerm}
+            placeholder="Search Pokémon"
+          />
+        </div>
       </div>
       <div className="Pokemon-list">
-        {pokemon.map((pkmn) => (
+        {filteredPkmn.map((pkmn) => (
           <div
             key={pkmn.name}
             className="Pokemon-cardContainer"
