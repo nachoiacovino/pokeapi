@@ -10,11 +10,13 @@ const PokemonCard = ({ pokemon }) => {
       <div className="PokemonCard-header">
         {pokemon.id && <div className="flex-helper"></div>}
         <div className="PokemonCard-title">
-          <img
-            src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`}
-            alt={pokemon.name}
-          />
-          <p>{pokemon.name}</p>
+          <div className="PokemonCard-image">
+            <img
+              src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`}
+              alt={pokemon.name}
+            />
+          </div>
+          <p className="PokemonCard-name">{pokemon.name}</p>
         </div>
         {pokemon.id && (
           <div

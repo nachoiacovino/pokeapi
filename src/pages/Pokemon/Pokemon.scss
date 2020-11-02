@@ -37,8 +37,14 @@
       cursor: pointer;
 
       .PokemonCard {
+        width: 13vw;
         height: 15vh;
         align-items: center;
+
+        .PokemonCard-name {
+          margin-top: 0;
+          margin-bottom: 1vh;
+        }
 
         &:hover {
           background: rgb(228, 227, 227);

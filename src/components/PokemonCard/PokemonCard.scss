@@ -4,21 +4,33 @@
   flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
-  width: 12vw;
+  width: 25vw;
   margin-bottom: 3vh;
   text-transform: capitalize;
   background: white;
-  padding: 3vh;
+  padding: 2vh;
 
   .PokemonCard-header {
     display: flex;
     justify-content: space-between;
+    height: 100%;
 
     .PokemonCard-title {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       flex-direction: column;
       align-items: center;
+
+      .PokemonCard-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+    }
+
+    .PokemonCard-back {
+      cursor: pointer;
     }
 
     .PokemonCard-back {
