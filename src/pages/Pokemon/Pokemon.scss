@@ -21,6 +21,11 @@
     }
   }
 
+  .Pokemon-error {
+    display: flex;
+    justify-content: center;
+  }
+
   .Pokemon-list {
     display: flex;
     flex-wrap: wrap;

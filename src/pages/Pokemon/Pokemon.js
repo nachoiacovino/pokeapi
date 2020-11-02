@@ -15,17 +15,25 @@ const Pokemon = () => {
   const [filteredPkmn, setFilteredPkmn] = useState([]);
   const [term, setTerm] = useInputState('');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
 
   const navigateToDetail = (name) => history.push(`/pokemon/${name}`);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await pokeapi.get('pokemon', {
-        params: { limit: 151 },
-      });
-      setPokemon(res.data.results);
-      setFilteredPkmn(res.data.results);
-      setLoading(false);
+      try {
+        const res = await pokeapi.get('pokemon', {
+          params: { limit: 151 },
+        });
+        setPokemon(res.data.results);
+        setFilteredPkmn(res.data.results);
+        setLoading(false);
+      } catch (err) {
+        setError(
+          'There was a problem retrieving the data. Please try again later.',
+        );
+        setLoading(false);
+      }
     };
     fetchData();
   }, []);
@@ -51,6 +59,7 @@ const Pokemon = () => {
           />
         </div>
       </div>
+      {error && <div className="Pokemon-error">{error}</div>}
       {loading ? (
         <Loading loading={loading} />
       ) : (
