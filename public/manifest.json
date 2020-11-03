@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pokeapi",
+  "name": "Pokeapi First Gen",
   "icons": [
     {
       "src": "favicon.ico",
