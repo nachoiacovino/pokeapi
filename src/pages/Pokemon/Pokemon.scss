@@ -39,7 +39,7 @@
 
       .PokemonCard {
         max-width: 250px;
-        height: 15vh;
+        min-height: 15vh;
         align-items: center;
 
         .PokemonCard-name {
