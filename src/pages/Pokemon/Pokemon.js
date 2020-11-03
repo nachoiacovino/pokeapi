@@ -39,7 +39,9 @@ const Pokemon = () => {
   }, []);
 
   useEffect(() => {
-    setFilteredPkmn(pokemon.filter((pkmn) => pkmn.name.includes(term)));
+    setFilteredPkmn(
+      pokemon.filter((pkmn) => pkmn.name.includes(term.toLowerCase())),
+    );
   }, [pokemon, term]);
 
   return (
