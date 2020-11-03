@@ -46,7 +46,7 @@ const Pokemon = () => {
   }, [pokemon, term]);
 
   const navigateToDetail = (name) => {
-    sessionStorage.setItem('scrollPosition', window.pageYOffset);
+    if (!term) sessionStorage.setItem('scrollPosition', window.pageYOffset);
     history.push(`/pokemon/${name}`);
   };
 
