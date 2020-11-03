@@ -32,10 +32,10 @@
 
     .PokemonCard-back {
       cursor: pointer;
-    }
 
-    .PokemonCard-back {
-      cursor: pointer;
+      &:hover {
+        color: red;
+      }
     }
   }
 
