@@ -11,6 +11,7 @@
 - Conversor on height.
 - ESLint and Prettier used.
 - Unknown URLs prevented by redirecting to main page.
+- Function to avoid resetting scroll position.
 
 # Demo
 

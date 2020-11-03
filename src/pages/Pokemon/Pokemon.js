@@ -17,8 +17,6 @@ const Pokemon = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
-  const navigateToDetail = (name) => history.push(`/pokemon/${name}`);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,6 +26,7 @@ const Pokemon = () => {
         setPokemon(res.data.results);
         setFilteredPkmn(res.data.results);
         setLoading(false);
+        handleScrollPosition();
       } catch (err) {
         setError(
           'There was a problem retrieving the data. Please try again later.',
@@ -45,6 +44,19 @@ const Pokemon = () => {
       ),
     );
   }, [pokemon, term]);
+
+  const navigateToDetail = (name) => {
+    sessionStorage.setItem('scrollPosition', window.pageYOffset);
+    history.push(`/pokemon/${name}`);
+  };
+
+  const handleScrollPosition = () => {
+    const scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition));
+      sessionStorage.removeItem('scrollPosition');
+    }
+  };
 
   return (
     <div className="Pokemon">
